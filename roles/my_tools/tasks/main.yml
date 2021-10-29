@@ -1,0 +1,15 @@
+- name: 'install pip'
+  shell:
+    cmd: 'apt-get --yes install pip'
+
+- name: 'apt update'
+  shell: 
+    cmd: 'apt-get update'
+
+- name: 'install libpq and python dev'
+  shell:
+    cmd: 'apt-get install --yes libpq-dev python-dev'
+
+- name: 'install psycopg2'
+  shell:
+    cmd: 'pip install psycopg2'
