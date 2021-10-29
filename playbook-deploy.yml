@@ -1,0 +1,7 @@
+- 
+  name: 'Install Nginx'
+  hosts: target1
+  roles:
+    - role: my_nginx
+      tags: 
+        - nginx

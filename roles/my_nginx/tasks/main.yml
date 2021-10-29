@@ -1,0 +1,21 @@
+- name: 'apt update'
+  shell:
+    cmd: 'apt-get update'
+
+- name: 'install nginx'
+  shell:
+    cmd: 'apt-get install --yes nginx'
+
+- name: 'check success'
+  shell:
+    cmd: 'nginx -v'
+  register: nginx_version
+
+- name: 'echo output'
+  debug:
+    msg: '{{nginx_version.stdout}}'
+    
+- name: 'start nginx'
+  service:
+    name: 'nginx'
+    state: started
