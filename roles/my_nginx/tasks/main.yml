@@ -9,11 +9,6 @@
 - name: 'check success'
   shell:
     cmd: 'nginx -v'
-  register: nginx_version
-
-- name: 'echo output'
-  debug:
-    msg: '{{nginx_version.stdout}}'
     
 - name: 'start nginx'
   service:

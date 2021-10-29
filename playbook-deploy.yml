@@ -5,3 +5,6 @@
     - role: my_nginx
       tags: 
         - nginx
+    - role: my_postgresql
+      tags:
+        - db

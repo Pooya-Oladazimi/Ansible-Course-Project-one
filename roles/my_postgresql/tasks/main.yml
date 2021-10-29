@@ -1,0 +1,33 @@
+- name: 'apt update'
+  shell:
+    cmd: 'apt update'
+
+- name: 'install postgres'
+  shell:
+    cmd: 'apt install --yes postgresql postgresql-contrib'
+
+- name: 'start postgres'
+  service:
+    name: 'postgresql'
+    state: started
+
+- name: 'create user'
+  become_user: postgres
+  postgresql_user:
+    name: 'pooya'
+    password: '1111'
+
+- name: 'create user db'
+  become_user: postgres
+  postgresql_db:
+    name: pooya
+    encoding: UTF-8
+
+- name: "set privileges for the new user"
+  become_user: postgres
+  postgresql_privs:
+    db: pooya
+    role: pooya
+    objs: ALL_IN_SCHEMA
+    privs: SELECT,INSERT,UPDATE,DELETE
+
