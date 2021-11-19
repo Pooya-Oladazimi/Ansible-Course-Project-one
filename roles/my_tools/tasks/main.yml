@@ -1,15 +1,20 @@
-- name: 'install pip'
+- name: 'set time'
   shell:
-    cmd: 'apt-get --yes install pip'
+    cmd: 'hwclock --hctosys '
+
+- name: 'install pip3'
+  shell:
+    cmd: 'apt-get --yes install python3-pip'
 
 - name: 'apt update'
   shell: 
     cmd: 'apt-get update'
+  
 
 - name: 'install libpq and python dev'
   shell:
-    cmd: 'apt-get install --yes libpq-dev python-dev'
+    cmd: 'apt-get install --yes libpq-dev python3-dev'
 
 - name: 'install psycopg2'
   shell:
-    cmd: 'pip install psycopg2'
+    cmd: 'pip3 install psycopg2'

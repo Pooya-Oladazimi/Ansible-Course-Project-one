@@ -31,3 +31,9 @@
     objs: ALL_IN_SCHEMA
     privs: SELECT,INSERT,UPDATE,DELETE
 
+- name: "change peer to md5"
+  replace:
+    path: /etc/postgresql/12/main/pg_hba.conf
+    regexp: '\bpeer\b'
+    replace: 'md5'
+
