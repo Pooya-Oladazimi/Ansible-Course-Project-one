@@ -37,3 +37,7 @@
     regexp: '\bpeer\b'
     replace: 'md5'
 
+- name: "reload postgres"
+  shell:
+    cmd: 'service postgresql reload'
+
